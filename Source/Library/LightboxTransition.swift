@@ -30,6 +30,8 @@ class LightboxTransition: UIPercentDrivenInteractiveTransition {
         
         if interactive {
             controller.view.backgroundColor = UIColor.black.withAlphaComponent(show ? 1 : 0)
+            controller.headerView.alpha = show ? 1 : 0
+            controller.footerView.alpha = show ? 1 : 0
         } else {
             controller.view.alpha = show ? 1 : 0
         }
