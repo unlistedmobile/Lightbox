@@ -29,8 +29,8 @@ class LightboxTransition: UIPercentDrivenInteractiveTransition {
         guard let controller = lightboxController else { return }
 
         UIView.performWithoutAnimation {
-            controller.headerView.alpha = show ? 1 : 0
-            controller.footerView.alpha = show ? 1 : 0
+            let currentPage = controller.pageViews[controller.currentPage]
+            controller.toggleControls(pageView: currentPage, visible: show)
         }
         
         if interactive {
