@@ -12,7 +12,7 @@ let package = Package(
         .target(
             name: "Lightbox",
             path: "Source"
-            )
+        )
     ],
     swiftLanguageVersions: [.v5]
 )

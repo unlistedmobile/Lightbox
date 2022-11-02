@@ -8,6 +8,8 @@
 
 <img src="https://raw.githubusercontent.com/hyperoslo/Lightbox/master/Images/Icon.png" alt="Lightbox Icon" align="right" />
 
+This fork is maintained by Unlisted Mobile, Inc.
+
 **Lightbox** is a convenient and easy to use image viewer for your iOS app,
 packed with all the features you expect:
 
