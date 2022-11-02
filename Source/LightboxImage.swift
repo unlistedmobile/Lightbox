@@ -1,5 +1,4 @@
 import UIKit
-import SDWebImage
 
 open class LightboxImage {
 
@@ -33,12 +32,20 @@ open class LightboxImage {
     self.videoURL = videoURL
   }
 
-  open func addImageTo(_ imageView: SDAnimatedImageView, completion: ((UIImage?) -> Void)? = nil) {
+  open func addImageTo(_ imageView: UIImageView, completion: ((UIImage?) -> Void)? = nil) {
     if let image = image {
       imageView.image = image
       completion?(image)
     } else if let imageURL = imageURL {
-        LightboxConfig.loadImage(imageView, imageURL) { [weak self] downloadedImage in
+        guard let loadImage = LightboxConfig.loadImage else {
+           print("Lightbox: To use `imageURL`, you must use `LightboxConfig.loadImage`.")
+           image = nil
+           imageView.image = nil
+           completion?(nil)
+           return
+         }
+
+        loadImage(imageView, imageURL) { [weak self] downloadedImage in
            self?.image = downloadedImage
            completion?(downloadedImage)
          }
